@@ -1,0 +1,10 @@
+.score{
+  position: absolute;
+  margin-top: -165px;
+  margin-left: 800px;
+  padding: 0;
+}
+
+#scorePlayer{
+  font-size: 20px;
+}
