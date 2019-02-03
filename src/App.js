@@ -9,7 +9,7 @@ class App extends Component {
 
     this.state = {
       board: Array(9).fill(null),
-      player: 'X',
+      player: 'x',
       scoreX: 0,
       scoreY: 0,
       won: null
@@ -23,7 +23,7 @@ class App extends Component {
       const updScoreX = this.state.scoreX;
       const updScoreY = this.state.scoreY;
       updBoard[index] = this.state.player;
-      let updPlayer = (this.state.player === 'X') ? 'O' : 'X';
+      let updPlayer = (this.state.player === 'x') ? 'o' : 'x';
 
       this.setState({
         board: updBoard,
@@ -59,9 +59,9 @@ class App extends Component {
         let updatedScoreX = this.state.scoreX;
         let updatedScoreY = this.state.scoreY;
         const newBoard = Array(9).fill(null);
-        const newPlayer = 'X';
+        const newPlayer = 'x';
 
-        if (actualBoard[fr] === 'X') {
+        if (actualBoard[fr] === 'x') {
           updatedScoreX++;
         } else {
           updatedScoreY++;
@@ -81,7 +81,7 @@ class App extends Component {
 
   resetButtonHandler = () => {
     const newBoard = Array(9).fill(null);
-    const newPlayer = 'X';
+    const newPlayer = 'x';
     this.setState({
       board: newBoard,
       player: newPlayer,
@@ -93,7 +93,7 @@ class App extends Component {
 
   resetScoreHandler = () => {
     const newBoard = Array(9).fill(null);
-    const newPlayer = 'X';
+    const newPlayer = 'x';
     this.setState({
       board: newBoard,
       player: newPlayer,
