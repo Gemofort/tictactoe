@@ -4,11 +4,16 @@ import Score from './Score';
 
 class App extends Component {
 
-  state = {
-    board: Array(9).fill(null),
-    player: 'X',
-    scoreX: 0,
-    scoreY: 0
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      board: Array(9).fill(null),
+      player: 'X',
+      scoreX: 0,
+      scoreY: 0,
+      won: null
+    };
   }
 
   handleClick = index => {
@@ -24,7 +29,8 @@ class App extends Component {
         board: updBoard,
         player: updPlayer,
         scoreX: updScoreX,
-        scoreY: updScoreY
+        scoreY: updScoreY,
+        won: null
       });
     };
   }
@@ -65,7 +71,8 @@ class App extends Component {
           board: newBoard,
           player: newPlayer,
           scoreX: updatedScoreX,
-          scoreY: updatedScoreY
+          scoreY: updatedScoreY,
+          won: null
         });
 
       };
@@ -79,7 +86,8 @@ class App extends Component {
       board: newBoard,
       player: newPlayer,
       scoreX: this.state.scoreX,
-      scoreY: this.state.scoreY
+      scoreY: this.state.scoreY,
+      won: null
     });
   }
 
@@ -90,7 +98,8 @@ class App extends Component {
       board: newBoard,
       player: newPlayer,
       scoreX: 0,
-      scoreY: 0
+      scoreY: 0,
+      won: null
     });
   }
 
@@ -108,6 +117,8 @@ class App extends Component {
         </div>
         <button className='resetButton' onClick={this.resetButtonHandler}>Reset board</button>
         <Score
+          name1={this.props.name1}
+          name2={this.props.name2}
           scoreX={this.state.scoreX}
           scoreY={this.state.scoreY}
         />
