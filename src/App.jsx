@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import App from './App';
-import './Names.css'
+import Board from './Board';
+import './App.css'
 
-class Names extends Component {
+class App extends Component {
   constructor(props) {
     super(props);
 
@@ -46,7 +46,7 @@ class Names extends Component {
   showApp = () => {
     if (this.state.submitted) {
       return (
-        <App
+        <Board
           name1={this.state.names[0]}
           name2={this.state.names[1]}
         />);
@@ -74,4 +74,4 @@ class Names extends Component {
   }
 }
 
-export default Names;
+export default App;

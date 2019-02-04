@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import './App.css';
+import './Board.css';
 import Score from './Score';
 
-class App extends Component {
+class Board extends Component {
 
   constructor(props) {
     super(props);
@@ -129,4 +129,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Board;
