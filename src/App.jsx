@@ -9,7 +9,7 @@ class App extends Component {
     this.state = {
       name1: null,
       name2: null,
-      names: [null, null],
+      names: Array(2),
       submitted: false
     }
   }
@@ -43,13 +43,27 @@ class App extends Component {
     }
   }
 
+  handleExit = () => {
+    const updSubmitted = !this.state.submitted;
+    this.setState({
+      name1: null,
+      name2: null,
+      names: Array(2),
+      submitted: updSubmitted
+    });
+  }
+
   showApp = () => {
     if (this.state.submitted) {
       return (
-        <Board
-          name1={this.state.names[0]}
-          name2={this.state.names[1]}
-        />);
+        <React.Fragment>
+          <Board
+            name1={this.state.names[0]}
+            name2={this.state.names[1]}
+          />
+          <button className='exitButton' onClick={this.handleExit}>Exit to main menu</button>
+        </React.Fragment>
+      );
     } else {
       return (
         <React.Fragment>
