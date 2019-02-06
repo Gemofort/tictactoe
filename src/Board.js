@@ -81,6 +81,8 @@ class Board extends Component {
       [2, 4, 6]
     ];
     const actualBoard = this.state.board;
+    let seenX = false;
+    let seenO = false;
 
     for (let i = 0; i < winningMatch.length; i++) {
       const fr = winningMatch[i][0];
@@ -93,11 +95,13 @@ class Board extends Component {
         const newBoard = Array(9).fill(null);
         const newPlayer = 'x';
 
-        if (actualBoard[fr] === 'x') {
-          updatedScoreX++;
-        } else {
-          updatedScoreY++;
-        }
+        if (actualBoard[fr] === 'x' && !seenX) seenX = !seenX;
+        if (actualBoard[fr] === 'o' && !seenO) seenO = !seenO;
+
+
+        if ((seenX && seenO) || (seenX && !seenO)) updatedScoreX++;
+
+        if (seenO && !seenX) updatedScoreY++;
 
         this.setState({
           board: newBoard,
@@ -107,7 +111,6 @@ class Board extends Component {
           won: null,
           clicksNeeded: 0
         });
-
       };
     };
   }
