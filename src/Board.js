@@ -12,7 +12,9 @@ class Board extends Component {
       player: 'x',
       scoreX: 0,
       scoreY: 0,
-      won: null
+      won: null,
+      clicksNeeded: 0,
+      singlePlayer: this.props.singlePlayer
     };
   }
 
@@ -30,7 +32,37 @@ class Board extends Component {
         player: updPlayer,
         scoreX: updScoreX,
         scoreY: updScoreY,
-        won: null
+        won: null,
+        clicksNeeded: 0
+      });
+    };
+  }
+
+  handleSingleModeClick = index => {
+    let updBoard = this.state.board;
+
+    if (updBoard[index] === null) {
+      const updScoreX = this.state.scoreX;
+      const updScoreY = this.state.scoreY;
+      updBoard[index] = this.state.player;
+      while (true) {
+        if (this.state.clicksNeeded % 4 === 0 && this.state.clicksNeeded !== 0) {
+          break;
+        }
+        let randIndex = Math.floor(Math.random() * updBoard.length)
+        if (updBoard[randIndex] === null) {
+          updBoard[randIndex] = 'o';
+          break;
+        }
+      }
+
+      this.setState({
+        board: updBoard,
+        player: 'x',
+        scoreX: updScoreX,
+        scoreY: updScoreY,
+        won: null,
+        clicksNeeded: this.state.clicksNeeded + 1
       });
     };
   }
@@ -72,7 +104,8 @@ class Board extends Component {
           player: newPlayer,
           scoreX: updatedScoreX,
           scoreY: updatedScoreY,
-          won: null
+          won: null,
+          clicksNeeded: 0
         });
 
       };
@@ -87,7 +120,8 @@ class Board extends Component {
       player: newPlayer,
       scoreX: this.state.scoreX,
       scoreY: this.state.scoreY,
-      won: null
+      won: null,
+      clicksNeeded: 0
     });
   }
 
@@ -99,12 +133,15 @@ class Board extends Component {
       player: newPlayer,
       scoreX: 0,
       scoreY: 0,
-      won: null
+      won: null,
+      clicksNeeded: 0
     });
   }
 
   render() {
-    const box = this.state.board.map((box, index) => <div className='box' key={index} onClick={() => this.props.handleClick(index)}>{box}</div>)
+    const box = this.state.board.map((box, index) => <div className='box'
+      key={index}
+      onClick={this.state.singlePlayer ? () => this.handleSingleModeClick(index) : () => this.handleClick(index)}>{box}</div>)
     return (
       <React.Fragment>
         <div className="tag">

@@ -11,3 +11,10 @@
   margin-top: -140px;
   margin-left: 190px;
 }
+
+.singlePlayerDiv{
+  position: absolute;
+  padding: 0;
+  margin-top: 200px;
+  margin-left: 400px;
+}

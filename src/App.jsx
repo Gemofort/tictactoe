@@ -56,12 +56,12 @@ class App extends Component {
   }
 
   handleExit = () => {
-    const updSubmitted = !this.state.submitted;
     this.setState({
       name1: null,
       name2: null,
       names: Array(2),
-      submitted: updSubmitted
+      submitted: false,
+      onePlayer: false
     });
   }
 
@@ -72,18 +72,19 @@ class App extends Component {
           <Board
             name1={this.state.names[0]}
             name2={this.state.names[1]}
-            handleClick={this.handleClick}
+            singlePlayer={false}
           />
           <button className='exitButton' onClick={this.handleExit}>Exit to main menu</button>
         </React.Fragment>
       );
-    } else if (this.state.onePlayer) {
+    }
+    if (this.state.onePlayer) {
       return (
         <React.Fragment>
           <Board
-            name1={this.state.names[0]}
-            name2={this.state.names[1]}
-            handleClick={this.handleClick}
+            name1={'You'}
+            name2={'Bot'}
+            singlePlayer={true}
           />
           <button className='exitButton' onClick={this.handleExit}>Exit to main menu</button>
         </React.Fragment>
@@ -100,7 +101,10 @@ class App extends Component {
             <input type='text' name2={this.state.name1} onChange={this.handleChangeSecond} /><br />
             <input type='submit' value='Submit names' />
           </form>
-          <button onClick={this.handleSinglePlayer}>Single player mode</button>
+          <div className='singlePlayerDiv'>
+            <p>You also can try single player mode if you don't have friedns, lol</p>
+            <button className='singlePlayerButton' onClick={this.handleSinglePlayer}>Single player mode</button>
+          </div>
         </React.Fragment>
       );
     }
