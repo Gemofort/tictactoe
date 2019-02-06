@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Board.css';
+import './styles/Board.css';
 import Score from './Score';
 
 class Board extends Component {
@@ -104,7 +104,7 @@ class Board extends Component {
   }
 
   render() {
-    const box = this.state.board.map((box, index) => <div className='box' key={index} onClick={() => this.handleClick(index)}>{box}</div>)
+    const box = this.state.board.map((box, index) => <div className='box' key={index} onClick={() => this.props.handleClick(index)}>{box}</div>)
     return (
       <React.Fragment>
         <div className="tag">

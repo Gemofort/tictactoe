@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Board from './Board';
-import './App.css'
+import './styles/App.css'
 
 class App extends Component {
   constructor(props) {
@@ -10,7 +10,8 @@ class App extends Component {
       name1: null,
       name2: null,
       names: Array(2),
-      submitted: false
+      submitted: false,
+      onePlayer: false,
     }
   }
 
@@ -43,6 +44,17 @@ class App extends Component {
     }
   }
 
+  handleSinglePlayer = () => {
+    const updSinglePlayer = true;
+    this.setState({
+      name1: null,
+      name2: null,
+      names: Array(2),
+      submitted: false,
+      onePlayer: updSinglePlayer
+    });
+  }
+
   handleExit = () => {
     const updSubmitted = !this.state.submitted;
     this.setState({
@@ -60,6 +72,18 @@ class App extends Component {
           <Board
             name1={this.state.names[0]}
             name2={this.state.names[1]}
+            handleClick={this.handleClick}
+          />
+          <button className='exitButton' onClick={this.handleExit}>Exit to main menu</button>
+        </React.Fragment>
+      );
+    } else if (this.state.onePlayer) {
+      return (
+        <React.Fragment>
+          <Board
+            name1={this.state.names[0]}
+            name2={this.state.names[1]}
+            handleClick={this.handleClick}
           />
           <button className='exitButton' onClick={this.handleExit}>Exit to main menu</button>
         </React.Fragment>
@@ -76,6 +100,7 @@ class App extends Component {
             <input type='text' name2={this.state.name1} onChange={this.handleChangeSecond} /><br />
             <input type='submit' value='Submit names' />
           </form>
+          <button onClick={this.handleSinglePlayer}>Single player mode</button>
         </React.Fragment>
       );
     }
