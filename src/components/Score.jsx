@@ -24,9 +24,9 @@ class Score extends Component {
   showScore = () => {
     return (
       <div className='score'>
-        <p className={this.handleFirstBadge()} id='scorePlayer'>{this.props.name1} (X): {this.props.scoreX}</p>
+        <p className={this.handleFirstBadge()} id='scorePlayer'>{this.props.name1.toUpperCase()} (X): {this.props.scoreX}</p>
         <br />
-        <p className={this.handleSecondBadge()} id='scorePlayer'>{this.props.name2} (0): {this.props.scoreY}</p>
+        <p className={this.handleSecondBadge()} id='scorePlayer'>{this.props.name2.toUpperCase()} (0): {this.props.scoreY}</p>
       </div>
     );
   }
