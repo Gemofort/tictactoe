@@ -84,34 +84,48 @@ class Board extends Component {
     let seenX = false;
     let seenO = false;
 
+    let updatedScoreX = this.state.scoreX;
+    let updatedScoreY = this.state.scoreY;
+    const newBoard = Array(9).fill(null);
+    const newPlayer = 'x';
+
     for (let i = 0; i < winningMatch.length; i++) {
       const fr = winningMatch[i][0];
       const sec = winningMatch[i][1];
       const th = winningMatch[i][2];
 
       if (actualBoard[fr] === actualBoard[sec] && actualBoard[fr] === actualBoard[th] && actualBoard[fr] != null) {
-        let updatedScoreX = this.state.scoreX;
-        let updatedScoreY = this.state.scoreY;
-        const newBoard = Array(9).fill(null);
-        const newPlayer = 'x';
 
         if (actualBoard[fr] === 'x' && !seenX) seenX = !seenX;
+
         if (actualBoard[fr] === 'o' && !seenO) seenO = !seenO;
-
-
-        if ((seenX && seenO) || (seenX && !seenO)) updatedScoreX++;
-
-        if (seenO && !seenX) updatedScoreY++;
-
-        this.setState({
-          board: newBoard,
-          player: newPlayer,
-          scoreX: updatedScoreX,
-          scoreY: updatedScoreY,
-          won: null,
-          clicksNeeded: 0
-        });
       };
+    };
+
+    if ((seenX && seenO) || (seenX && !seenO)) {
+      updatedScoreX++;
+
+      this.setState({
+        board: newBoard,
+        player: newPlayer,
+        scoreX: updatedScoreX,
+        scoreY: updatedScoreY,
+        won: null,
+        clicksNeeded: 0
+      });
+    };
+
+    if (seenO && !seenX) {
+      updatedScoreY++;
+
+      this.setState({
+        board: newBoard,
+        player: newPlayer,
+        scoreX: updatedScoreX,
+        scoreY: updatedScoreY,
+        won: null,
+        clicksNeeded: 0
+      });
     };
   }
 
