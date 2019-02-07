@@ -12,13 +12,13 @@ class Score extends Component {
   }
 
   handleFirstBadge = () => {
-    if (this.props.scoreX > this.props.scoreY) return (this.state.plate + 'badge-danger');
-    return this.state.plate + 'badge-primary'
+    if (this.props.scoreX > this.props.scoreY) return (this.state.plate + 'badge-light');
+    return this.state.plate + 'badge-dark'
   }
 
   handleSecondBadge = () => {
-    if (this.props.scoreY > this.props.scoreX) return (this.state.plate + 'badge-danger');
-    return this.state.plate + 'badge-primary'
+    if (this.props.scoreY > this.props.scoreX) return (this.state.plate + 'badge-light');
+    return this.state.plate + 'badge-dark'
   }
 
   showScore = () => {
