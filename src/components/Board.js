@@ -161,9 +161,6 @@ class Board extends Component {
       onClick={this.state.singlePlayer ? () => this.handleSingleModeClick(index) : () => this.handleClick(index)}>{box}</div>)
     return (
       <React.Fragment>
-        <div className="tag">
-          <h1>Tic Tac Toe</h1>
-        </div>
         <div className="container">
           <div className="board" onClick={this.showResults}>
             {box}

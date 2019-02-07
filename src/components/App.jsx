@@ -41,7 +41,8 @@ class App extends Component {
         names: updNames,
         submitted: !this.state.submitted
       });
-    }
+    };
+    console.log(this.state.submitted);
   }
 
   handleSinglePlayer = () => {
@@ -93,18 +94,16 @@ class App extends Component {
       return (
         <React.Fragment>
           <form className='playerNames' onSubmit={this.handleSubmit}>
-            <h1> <b>Tic Tac Toe</b> by Ivan Feofanov</h1>
-            <h3>Please enter your nicknames(at least 1 letter and not the same)</h3>
-            First Player:<br />
+            <h1 className='logoTag'> <b>Tic Tac Toe</b> by Ivan Feofanov</h1>
+            <h3>Please enter your nicknames, at least 1 letter and not the same</h3>
+            <p className='players'>First Player</p>
             <input type='text' name1={this.state.name1} onChange={this.handleChangeFirst} /> <br />
-            Second Player: <br />
+            <p className='players'>Second Player</p>
             <input type='text' name2={this.state.name1} onChange={this.handleChangeSecond} /><br />
             <input type='submit' value='Submit names' />
-          </form>
-          <div className='singlePlayerDiv'>
-            <p>You also can try single player mode if you don't have friedns, lol</p>
+            <p className='singlePlayer'>You also can try single player mode if you don't have friedns, lol</p>
             <button className='singlePlayerButton' onClick={this.handleSinglePlayer}>Single player mode</button>
-          </div>
+          </form>
         </React.Fragment>
       );
     }

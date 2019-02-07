@@ -1,20 +1,91 @@
+body {
+  background-image: url("background.jpg");
+}
+
 .playerNames{
   padding: 0;
   position: absolute;
   margin-top: 100px;
-  margin-left: 100px;
+  margin-left: 350px;
+  text-align: center;
+}
+
+h3, .singlePlayer{
+  letter-spacing: 1px;
+  font-family: 'Staatliches';
+  color: white;
+}
+
+.singlePlayer{
+  margin-top: 20px;
+}
+
+.logoTag{
+  font-family: 'Staatliches';
+  color: white;
+  font-size: 70px;
+}
+
+.players{
+  font-family: 'Staatliches', cursive;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  letter-spacing: 2px;
+}
+
+input[type=text]{
+  font-family: 'Staatliches';
+  font-size: 30spx;
+  letter-spacing: 2px;
+  background-color: transparent;
+  outline: none;
+  text-align: center;
+  border: 2px solid transparent;
+  border-bottom: 2px solid white;
+  padding: 4px 45px;
+  transition: 1s;
+  color: white;
+}
+
+
+input[type=text]:focus {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px solid white;
+}
+
+input[type=submit], .singlePlayerButton{
+  outline: none;
+  font-family: 'Staatliches';
+  letter-spacing: 4px;
+  background-color: transparent;
+  padding: 7px 45px;
+  color: white;
+  border: 2px solid white;
+  border-radius: 4px;
+  transition-duration: 0.7s;
+}
+
+input[type=submit]{
+  margin-top: 15px;
+}
+
+input[type=submit]:hover, .singlePlayerButton:hover, .exitButton:hover{
+  background-color: white;
+  color: black;
 }
 
 .exitButton{
+  outline: none;
+  font-family: 'Staatliches';
+  letter-spacing: 4px;
+  background-color: transparent;
   position: absolute;
-  padding: 0;
-  margin-top: -140px;
-  margin-left: 190px;
-}
-
-.singlePlayerDiv{
-  position: absolute;
-  padding: 0;
-  margin-top: 200px;
-  margin-left: 400px;
+  padding: 4px 20px;
+  margin-top: -220px;
+  margin-left: 290px;
+  color: white;
+  border: 2px solid white;
+  border-radius: 4px;
+  transition-duration: 0.7s;
 }
