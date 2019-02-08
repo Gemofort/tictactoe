@@ -31,6 +31,7 @@ body {
   display: inline-flex;
   flex-wrap: wrap;
   width:310px;
+  margin-left: 150px;
 }
 
 .resetButton{

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Board from './Board';
-import './../styles/App.css'
+import LoadingBar from './LoadingBar';
+import './../styles/App.css';
 
 class App extends Component {
   constructor(props) {
@@ -12,9 +12,9 @@ class App extends Component {
       names: Array(2),
       submitted: false,
       onePlayer: false,
-    }
-  }
+    };
 
+  }
   handleChangeFirst = (event) => {
     this.setState({
       name1: event.target.value,
@@ -70,7 +70,7 @@ class App extends Component {
     if (this.state.submitted) {
       return (
         <React.Fragment>
-          <Board
+          <LoadingBar
             name1={this.state.names[0]}
             name2={this.state.names[1]}
             singlePlayer={false}
@@ -82,7 +82,7 @@ class App extends Component {
     if (this.state.onePlayer) {
       return (
         <React.Fragment>
-          <Board
+          <LoadingBar
             name1={'You'}
             name2={'Bot'}
             singlePlayer={true}

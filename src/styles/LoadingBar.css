@@ -1,0 +1,20 @@
+.outterBar{
+  position: absolute;
+  margin-top: 350px;
+  margin-left: 450px;
+  padding: 10px 200px;
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 10px;
+}
+
+.barLoader{
+  position: absolute;
+  margin-left: -195px;
+  margin-top: -5px;
+  height: 10px;
+  background-color: white;
+  border: 2px solid white;
+  border-radius: 4px;
+  transition: 0.1s;
+}
