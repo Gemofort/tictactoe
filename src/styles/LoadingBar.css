@@ -18,3 +18,12 @@
   border-radius: 4px;
   transition: 0.1s;
 }
+
+.loadingTag{
+  position: absolute;
+  color: white;
+  font-family: 'Staatliches';
+  font-size: 40px;
+  margin-top: 300px;
+  margin-left: 580px;
+}

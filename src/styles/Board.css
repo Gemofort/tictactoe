@@ -27,6 +27,10 @@ body {
   transition: 1s;
 }
 
+.box:hover{
+  background: rgb( 255, 255 ,255 , 0.1);
+}
+
 .board{
   display: inline-flex;
   flex-wrap: wrap;

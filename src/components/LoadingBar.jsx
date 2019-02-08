@@ -7,6 +7,7 @@ class LoadingBar extends Component {
     super(props);
 
     this.state = {
+      nextElement: this.props.nextElement,
       done: false,
       width: 0,
       style: {
@@ -40,7 +41,7 @@ class LoadingBar extends Component {
   }
 
   showBoard = () => {
-    if (this.state.done) {
+    if (this.state.done && this.state.nextElement === 'Board') {
       return (
         <Board
           name1={this.props.name1}
@@ -50,9 +51,12 @@ class LoadingBar extends Component {
       );
     } else {
       return (
-        <div className='outterBar'>
-          <div className='barLoader' style={this.state.style}>{this.loadingBar()}</div>
-        </div>
+        <React.Fragment>
+          <p className='loadingTag'>Loading ...</p>
+          <div className='outterBar'>
+            <div className='barLoader' style={this.state.style}>{this.loadingBar()}</div>
+          </div>
+        </React.Fragment>
       );
     }
   }

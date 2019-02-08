@@ -83,6 +83,7 @@ class App extends Component {
       return (
         <React.Fragment>
           <LoadingBar
+            nextElement='Board'
             name1={'You'}
             name2={'Bot'}
             singlePlayer={true}
