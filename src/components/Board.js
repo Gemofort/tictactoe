@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './../styles/Board.css';
 import Score from './Score';
+import LoadingBar from './LoadingBar';
 
 class Board extends Component {
 
@@ -14,7 +15,8 @@ class Board extends Component {
       scoreY: 0,
       won: null,
       clicksNeeded: 0,
-      singlePlayer: this.props.singlePlayer
+      singlePlayer: this.props.singlePlayer,
+      exit: false
     };
   }
 
@@ -155,27 +157,49 @@ class Board extends Component {
     });
   }
 
-  render() {
-    const box = this.state.board.map((box, index) => <div className='box'
-      key={index}
-      onClick={this.state.singlePlayer ? () => this.handleSingleModeClick(index) : () => this.handleClick(index)}>{box}</div>)
-    return (
-      <React.Fragment>
-        <div className="container">
-          <div className="board" onClick={this.showResults}>
-            {box}
-          </div>
-        </div>
-        <button className='resetButton' onClick={this.resetButtonHandler}>Reset board</button>
-        <Score
-          name1={this.props.name1}
-          name2={this.props.name2}
-          scoreX={this.state.scoreX}
-          scoreY={this.state.scoreY}
-        />
-        <button className='resetScore' onClick={this.resetScoreHandler}>Reset score</button>
-      </React.Fragment>
+  handleExit = () => {
+    this.setState({
+      exit: true
+    });
+  }
 
+  doHandleExit = () => {
+    if (this.state.exit) {
+      return (
+        <LoadingBar
+          nextElement='App'
+        />
+      );
+    } else {
+      const box = this.state.board.map((box, index) => <div
+        className='box'
+        key={index}
+        onClick={this.state.singlePlayer ? () => this.handleSingleModeClick(index) : () => this.handleClick(index)}>{box}</div>);
+      return (
+        <React.Fragment>
+          <p className='playerTurn'> <b className='playerItself'>{this.state.player}</b>'s turn</p>
+          <div className="container">
+            <div className="board" onClick={this.showResults}>
+              {box}
+            </div>
+          </div>
+          <button className='resetButton' onClick={this.resetButtonHandler}>Reset board</button>
+          <Score
+            name1={this.props.name1}
+            name2={this.props.name2}
+            scoreX={this.state.scoreX}
+            scoreY={this.state.scoreY}
+          />
+          <button className='resetScore' onClick={this.resetScoreHandler}>Reset score</button>
+          <button className='exitButton' onClick={this.handleExit}>Exit to main menu</button>
+        </React.Fragment>
+      );
+    }
+  }
+
+  render() {
+    return (
+      this.doHandleExit()
     );
   }
 }

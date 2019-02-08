@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Board from './Board';
-import './../styles/LoadingBar.css'
+import './../styles/LoadingBar.css';
+import App from './App';
 
 class LoadingBar extends Component {
   constructor(props) {
@@ -36,7 +37,7 @@ class LoadingBar extends Component {
             width: `${updwidth + 1}px`
           }
         });
-      }
+      };
     }, 100);
   }
 
@@ -47,6 +48,14 @@ class LoadingBar extends Component {
           name1={this.props.name1}
           name2={this.props.name2}
           singlePlayer={this.props.singlePlayer}
+          exit={false}
+        />
+      );
+    } else if (this.state.done && this.state.nextElement === 'App') {
+      return (
+        <App
+          submitted={false}
+          singlePlayer={false}
         />
       );
     } else {

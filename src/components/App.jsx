@@ -10,10 +10,10 @@ class App extends Component {
       name1: null,
       name2: null,
       names: Array(2),
-      submitted: false,
-      onePlayer: false,
+      submitted: this.props.submitted ? this.props.submitted : false,
+      onePlayer: this.props.onePlayer ? this.props.onePlayer : false,
     };
-
+    console.log(this.state);
   }
   handleChangeFirst = (event) => {
     this.setState({
@@ -42,7 +42,6 @@ class App extends Component {
         submitted: !this.state.submitted
       });
     };
-    console.log(this.state.submitted);
   }
 
   handleSinglePlayer = () => {
@@ -56,47 +55,34 @@ class App extends Component {
     });
   }
 
-  handleExit = () => {
-    this.setState({
-      name1: null,
-      name2: null,
-      names: Array(2),
-      submitted: false,
-      onePlayer: false
-    });
-  }
-
   showApp = () => {
     if (this.state.submitted) {
       return (
         <React.Fragment>
           <LoadingBar
+            nextElement='Board'
             name1={this.state.names[0]}
             name2={this.state.names[1]}
             singlePlayer={false}
           />
-          <button className='exitButton' onClick={this.handleExit}>Exit to main menu</button>
         </React.Fragment>
       );
     }
     if (this.state.onePlayer) {
       return (
-        <React.Fragment>
-          <LoadingBar
-            nextElement='Board'
-            name1={'You'}
-            name2={'Bot'}
-            singlePlayer={true}
-          />
-          <button className='exitButton' onClick={this.handleExit}>Exit to main menu</button>
-        </React.Fragment>
+        <LoadingBar
+          nextElement='Board'
+          name1={'You'}
+          name2={'Bot'}
+          singlePlayer={true}
+        />
       );
     } else {
       return (
         <React.Fragment>
           <form className='playerNames' onSubmit={this.handleSubmit}>
-            <h1 className='logoTag'> <b>Tic Tac Toe</b> by Ivan Feofanov</h1>
-            <h3>Please enter your nicknames, at least 1 letter and not the same</h3>
+            <h1 className='logoTag'> <b className='tictactoe'>Tic Tac Toe</b> by Ivan Feofanov</h1>
+            <h3>Please enter your nicknames, at least One letter and not the same</h3>
             <p className='players'>First Player</p>
             <input type='text' name1={this.state.name1} onChange={this.handleChangeFirst} /> <br />
             <p className='players'>Second Player</p>

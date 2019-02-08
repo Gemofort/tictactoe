@@ -17,11 +17,12 @@
   border: 2px solid white;
   border-radius: 4px;
   transition: 0.1s;
+  transition-timing-function: linear;
 }
 
 .loadingTag{
   position: absolute;
-  color: white;
+  color: red;
   font-family: 'Staatliches';
   font-size: 40px;
   margin-top: 300px;

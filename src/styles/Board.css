@@ -12,6 +12,20 @@ body {
   font-size: 40px;
 }
 
+.playerTurn{
+  position: absolute;
+  color: white;
+  margin-top: -70px;
+  margin-left: 620px;
+  font-family: 'Staatliches';
+  font-size: 40px;
+  letter-spacing: 1px;
+}
+
+.playerItself{
+  color:red;
+}
+
 .box{
   width: 80px;
   height: 80px;
@@ -70,5 +84,5 @@ body {
 
 .resetButton:hover, .resetScore:hover{
   background-color: white;
-  color: black;
+  color: red;
 }
