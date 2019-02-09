@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Board from './Board';
+import Board from './Board.jsx';
 import './../styles/LoadingBar.css';
 import App from './App';
 
@@ -27,7 +27,7 @@ class LoadingBar extends Component {
             width: 390,
             style: '390px'
           });
-        }, 500);
+        }, 750);
         clearInterval(id);
       } else {
         this.setState({

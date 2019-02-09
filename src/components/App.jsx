@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import LoadingBar from './LoadingBar';
+import LoadingBar from './LoadingBar.jsx';
 import './../styles/App.css';
 
 class App extends Component {

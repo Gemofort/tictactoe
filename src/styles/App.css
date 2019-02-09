@@ -3,24 +3,31 @@ body {
 }
 
 .playerNames{
-  padding: 0;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  height: 500px;
+  width: 1000px;
+  margin-top: -250px;
+  margin-left: -500px;
   position: absolute;
-  margin-top: 100px;
-  margin-left: 280px;
   text-align: center;
 }
 
 h3, .singlePlayer{
+  margin:2 auto;
   letter-spacing: 1px;
   font-family: 'Staatliches';
   color: white;
 }
 
 .singlePlayer{
+  margin:2 auto;
   margin-top: 20px;
 }
 
 .logoTag{
+  margin:2 auto;
   font-family: 'Staatliches';
   color: white;
   font-size: 70px;
@@ -31,6 +38,7 @@ h3, .singlePlayer{
 }
 
 .players{
+  margin:2 auto;
   font-family: 'Staatliches', cursive;
   font-size: 20px;
   font-weight: bold;
@@ -39,6 +47,7 @@ h3, .singlePlayer{
 }
 
 input[type=text]{
+  margin:2 auto;
   font-family: 'Staatliches';
   font-size: 30spx;
   letter-spacing: 2px;
@@ -59,6 +68,7 @@ input[type=text]:focus {
 }
 
 input[type=submit], .singlePlayerButton{
+  margin:2 auto;
   outline: none;
   font-family: 'Staatliches';
   letter-spacing: 4px;
@@ -71,25 +81,11 @@ input[type=submit], .singlePlayerButton{
 }
 
 input[type=submit]{
+  margin:2 auto;
   margin-top: 15px;
 }
 
 input[type=submit]:hover, .singlePlayerButton:hover, .exitButton:hover{
   background-color: white;
   color: red;
-}
-
-.exitButton{
-  outline: none;
-  font-family: 'Staatliches';
-  letter-spacing: 4px;
-  background-color: transparent;
-  position: absolute;
-  padding: 4px 20px;
-  margin-top: -220px;
-  margin-left: 290px;
-  color: white;
-  border: 2px solid white;
-  border-radius: 4px;
-  transition-duration: 0.7s;
 }

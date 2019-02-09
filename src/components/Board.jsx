@@ -183,15 +183,17 @@ class Board extends Component {
               {box}
             </div>
           </div>
-          <button className='resetButton' onClick={this.resetButtonHandler}>Reset board</button>
           <Score
             name1={this.props.name1}
             name2={this.props.name2}
             scoreX={this.state.scoreX}
             scoreY={this.state.scoreY}
           />
-          <button className='resetScore' onClick={this.resetScoreHandler}>Reset score</button>
-          <button className='exitButton' onClick={this.handleExit}>Exit to main menu</button>
+          <div className='boardButtons'>
+            <button className='exitButton' onClick={this.handleExit}>Exit to main menu</button>
+            <button className='resetButton' onClick={this.resetButtonHandler}>Reset board</button>
+            <button className='resetScore' onClick={this.resetScoreHandler}>Reset score</button>
+          </div>
         </React.Fragment>
       );
     }

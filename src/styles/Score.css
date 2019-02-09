@@ -1,7 +1,11 @@
 .score{
-  position: absolute;
-  margin-top: -180px;
-  margin-left: 900px;
+  position: fixed;
+  height: 300px;
+  width: 300px;
+  left: 50%;
+  top: 50%;
+  margin-top: -63px;
+  margin-left: 170px;
   padding: 0;
 }
 
