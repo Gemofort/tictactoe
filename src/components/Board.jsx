@@ -13,7 +13,6 @@ class Board extends Component {
       player: 'x',
       scoreX: 0,
       scoreY: 0,
-      won: null,
       clicksNeeded: 0,
       singlePlayer: this.props.singlePlayer,
       exit: false
@@ -24,18 +23,12 @@ class Board extends Component {
     let updBoard = this.state.board;
 
     if (updBoard[index] === null) {
-      const updScoreX = this.state.scoreX;
-      const updScoreY = this.state.scoreY;
       updBoard[index] = this.state.player;
       let updPlayer = (this.state.player === 'x') ? 'o' : 'x';
 
       this.setState({
         board: updBoard,
-        player: updPlayer,
-        scoreX: updScoreX,
-        scoreY: updScoreY,
-        won: null,
-        clicksNeeded: 0
+        player: updPlayer
       });
     };
   }
@@ -44,8 +37,6 @@ class Board extends Component {
     let updBoard = this.state.board;
 
     if (updBoard[index] === null) {
-      const updScoreX = this.state.scoreX;
-      const updScoreY = this.state.scoreY;
       updBoard[index] = this.state.player;
       while (true) {
         if (this.state.clicksNeeded % 4 === 0 && this.state.clicksNeeded !== 0) {
@@ -60,10 +51,6 @@ class Board extends Component {
 
       this.setState({
         board: updBoard,
-        player: 'x',
-        scoreX: updScoreX,
-        scoreY: updScoreY,
-        won: null,
         clicksNeeded: this.state.clicksNeeded + 1
       });
     };
@@ -111,8 +98,6 @@ class Board extends Component {
         board: newBoard,
         player: newPlayer,
         scoreX: updatedScoreX,
-        scoreY: updatedScoreY,
-        won: null,
         clicksNeeded: 0
       });
     };
@@ -123,9 +108,7 @@ class Board extends Component {
       this.setState({
         board: newBoard,
         player: newPlayer,
-        scoreX: updatedScoreX,
         scoreY: updatedScoreY,
-        won: null,
         clicksNeeded: 0
       });
     };
@@ -137,9 +120,6 @@ class Board extends Component {
     this.setState({
       board: newBoard,
       player: newPlayer,
-      scoreX: this.state.scoreX,
-      scoreY: this.state.scoreY,
-      won: null,
       clicksNeeded: 0
     });
   }
@@ -152,7 +132,6 @@ class Board extends Component {
       player: newPlayer,
       scoreX: 0,
       scoreY: 0,
-      won: null,
       clicksNeeded: 0
     });
   }
