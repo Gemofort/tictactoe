@@ -20,18 +20,6 @@ class App extends Component {
     });
   }
 
-  handleChangeFirst = (event) => {
-    this.setState({
-      name1: event.target.value
-    });
-  }
-
-  handleChangeSecond = (event) => {
-    this.setState({
-      name2: event.target.value
-    });
-  }
-
   handleSubmit = (event) => {
     event.preventDefault();
     let updNamesFirst = this.state.name1;
@@ -73,7 +61,7 @@ class App extends Component {
     } else {
       return (
         <React.Fragment>
-          <form className='playerNames' autocomplete='off' onSubmit={this.handleSubmit}>
+          <form className='playerNames' autoComplete='off' onSubmit={this.handleSubmit}>
             <h1 className='logoTag'> <b className='tictactoe'>Tic Tac Toe</b> by Ivan Feofanov</h1>
             <h3>Please enter your nicknames, at least One letter and not the same</h3>
             <p className='players'>First Player</p>
